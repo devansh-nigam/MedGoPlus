@@ -9,6 +9,7 @@ import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.react.defaults.DefaultReactHost.getDefaultReactHost
 import com.facebook.react.defaults.DefaultReactNativeHost
+import com.swmansion.reanimated.ReanimatedJSIModulePackage // Add this import
 
 class MainApplication : Application(), ReactApplication {
 
@@ -26,6 +27,9 @@ class MainApplication : Application(), ReactApplication {
 
         override val isNewArchEnabled: Boolean = BuildConfig.IS_NEW_ARCHITECTURE_ENABLED
         override val isHermesEnabled: Boolean = BuildConfig.IS_HERMES_ENABLED
+        
+        // Add this method for Reanimated JSI
+        override fun getJSIModulePackage() = ReanimatedJSIModulePackage()
       }
 
   override val reactHost: ReactHost
